@@ -97,9 +97,29 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+        for (HashMap<String, String> row : allJobs) {
+            value = value.toLowerCase();
+            if (row.get("name").toLowerCase().contains(value) && !jobs.contains(row)){
+                jobs.add(row);
+            }
+            if (row.get("employer").toLowerCase().contains(value) && !jobs.contains(row)) {
+                jobs.add(row);
+            }
+            if (row.get("location").toLowerCase().contains(value) && !jobs.contains(row)) {
+                jobs.add(row);
+            }
+            if (row.get("position type").toLowerCase().contains(value) && !jobs.contains(row)) {
+                jobs.add(row);
+            }
+            if (row.get("core competency").toLowerCase().contains(value) && !jobs.contains(row)) {
+                jobs.add(row);
+            }
+        }
+        System.out.println(jobs);
         // TODO - implement this method
-        return null;
+        return jobs;
     }
 
     /**
