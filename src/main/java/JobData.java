@@ -76,7 +76,7 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
+            value = value.toLowerCase();
             String aValue = row.get(column);
 
             if (aValue.toLowerCase().contains(value)) {
