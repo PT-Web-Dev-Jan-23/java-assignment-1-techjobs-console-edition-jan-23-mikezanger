@@ -117,7 +117,7 @@ public class JobData {
                 jobs.add(row);
             }
         }
-        System.out.println(jobs);
+
         // TODO - implement this method
         return jobs;
     }
