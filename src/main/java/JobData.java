@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -101,23 +98,24 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
             value = value.toLowerCase();
-            if (row.get("name").toLowerCase().contains(value) && !jobs.contains(row)){
-                jobs.add(row);
+            for (HashMap.Entry<String, String> job : row.entrySet()) {
+                if (job.getValue().toLowerCase().contains(value) && !jobs.contains(row)) {
+                    jobs.add(row);
+                }
+//            if (row.get("employer").toLowerCase().contains(value) && !jobs.contains(row)) {
+//                jobs.add(row);
+//            }
+//            if (row.get("location").toLowerCase().contains(value) && !jobs.contains(row)) {
+//                jobs.add(row);
+//            }
+//            if (row.get("position type").toLowerCase().contains(value) && !jobs.contains(row)) {
+//                jobs.add(row);
+//            }
+//            if (row.get("core competency").toLowerCase().contains(value) && !jobs.contains(row)) {
+//                jobs.add(row);
             }
-            if (row.get("employer").toLowerCase().contains(value) && !jobs.contains(row)) {
-                jobs.add(row);
-            }
-            if (row.get("location").toLowerCase().contains(value) && !jobs.contains(row)) {
-                jobs.add(row);
-            }
-            if (row.get("position type").toLowerCase().contains(value) && !jobs.contains(row)) {
-                jobs.add(row);
-            }
-            if (row.get("core competency").toLowerCase().contains(value) && !jobs.contains(row)) {
-                jobs.add(row);
-            }
-        }
 
+        }
         // TODO - implement this method
         return jobs;
     }
